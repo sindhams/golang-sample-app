@@ -20,8 +20,7 @@ RUN CGO_ENABLED=0 go test -v
 RUN go build -o ./out/go-sample-app .
 
 # Start fresh from a smaller image
-FROM alpine:3.9 
-RUN apk add ca-certificates
+FROM ubuntu:18.04 
 
 
 COPY --from=build_base /tmp/go-sample-app/out/go-sample-app /app/go-sample-app
